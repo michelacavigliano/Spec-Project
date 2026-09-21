@@ -1,8 +1,4 @@
 
---  Xilinx Single Port No Change RAM
---  This code implements a parameterizable single-port no-change memory where when data is written
---  to the memory, the output remains unchanged.  This is the most power efficient write mode.
---  Modify the parameters for the desired RAM characteristics.
 
 library ieee;
 use ieee.std_logic_1164.all;
@@ -28,7 +24,7 @@ end RAM;
 
 architecture behav of RAM is
 
-type ram_type is array (0 to RAM_DEPTH-1) of std_logic_vector(RAM_WIDTH-1 downto 0);      -- 2D Array Declaration for RAM signal
+type ram_type is array (0 to RAM_DEPTH-1) of std_logic_vector(RAM_WIDTH-1 downto 0);      
 
 impure function initramfromfile (ramfilename : in string) return ram_type is
 file ramfile	: text open read_mode is ramfilename;
@@ -82,7 +78,7 @@ begin
     end if;
 end process;
 
-DOUT <= QR; --final assignment for the output data bus, can be substituted with a register (see the Vivado template)
+DOUT <= QR; 
 
 end behav;
 						
